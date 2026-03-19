@@ -12,8 +12,8 @@ print('Listening on port %s ...' % SERVER_PORT)
 while True:
     # Wait for client connections
     client_connection, client_address = server_socket.accept()
-    # Get the client request
-    fin = open('htdocs/index.html', 'r')
+    # Get the content of htdocs/index.html
+    fin = open('htdocs/index.html')
     content = fin.read()
     fin.close()
     # Send HTTP response
