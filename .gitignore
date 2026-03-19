@@ -1,0 +1,43 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Editor swap/backup
+*.swp
+*.swo
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# Never commit nested repos
+**/.git/
