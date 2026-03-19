@@ -1,4 +1,4 @@
-# DanielPsh — Code Portfolio
+# DanielPsh — Portfolio
 
 This repository is my personal code portfolio and coursework archive.
 
