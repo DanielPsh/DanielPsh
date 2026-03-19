@@ -15,8 +15,14 @@ while True:
     # Get the client request
     request = client_connection.recv(1024).decode()
     print(request)
-    # Get the content of htdocs/index.html
-    fin = open('htdocs/index.html')
+    # Parse HTTP headers
+    headers = request.split('\n')
+    filename = headers[0].split()[1]
+    # Get the content of the file
+    if filename == '/':
+        filename = '/index.html'
+
+    fin = open('htdocs' + filename)
     content = fin.read()
     fin.close()
     # Send HTTP response

@@ -15,12 +15,20 @@ while True:
     # Get the client request
     request = client_connection.recv(1024).decode()
     print(request)
-    # Get the content of htdocs/index.html
-    fin = open('htdocs/index.html')
-    content = fin.read()
-    fin.close()
+    # Parse HTTP headers
+    headers = request.split('\n')
+    filename = headers[0].split()[1]
+    # Get the content of the file
+    if filename == '/':
+        filename = '/index.html'
+    try:
+        fin = open('htdocs' + filename)
+        content = fin.read()
+        fin.close()
+        response = 'HTTP/1.1 200 OK\n\n' + content
+    except FileNotFoundError:
+        response = 'HTTP/1.1 404 Not Found\n\nFile Not Found'
     # Send HTTP response
-    response = 'HTTP/1.0 200 OK\n\n' + content
     client_connection.sendall(response.encode())
     client_connection.close()
 # Close socket
