@@ -69,6 +69,8 @@ If you have JDK installed, you can compile and run from the `src/` root package 
 
 - `Polyu/COMP2322/Lab05/MyHTTPServer1.py`: simple socket-based HTTP server
 - `Polyu/COMP2322/Lab05/MyHTTPServer2.py`: another HTTP server variant
+- `Polyu/COMP2322/Lab05/MyHTTPServer3.py`: another HTTP server variant
+- `Polyu/COMP2322/Lab05/MyHTTPServer4.py`: another HTTP server variant
 - `Polyu/COMP2322/socket_lab/`: TCP client/server exercises
 - `Polyu/COMP2322/Lab04/Q3/`, `Polyu/COMP2322/Lab04/Q4/`: TCP lab questions
 - `Polyu/COMP2322/tcp.py`, `Polyu/COMP2322/udp.py`: TCP/UDP exercises
