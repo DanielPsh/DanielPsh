@@ -1,6 +1,6 @@
 # DanielPsh — Portfolio
 
-This repository is my university portfolio and coursework archive, containing assignments, lab work, and small projects across multiple courses. It includes Java, Python networking, MIPS assembly, and Rust implementations, along with supporting scripts and tests—reflecting my progress and growing experience throughout my studies.
+This repository is my portfolio and coursework archive, containing assignments, lab work, and small projects across multiple courses. It includes Java, Python networking, MIPS assembly, and Rust implementations, along with supporting scripts and tests—reflecting my progress and growing experience throughout my studies.
 
 ## Table of contents
 
