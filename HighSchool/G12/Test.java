@@ -1,45 +1,53 @@
-
-import java.util.Scanner;
-public class Test {
-    /**
-     * @param args
-     */
-    public static void main(String[] args)
-    {
-        /* 
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a num: ");
-        String choice = input.next();
-
-        checkInput(choice);
-        */
-        Scanner scanner = new Scanner(System.in);
-        int intValue = 0;
-        boolean isValidInput = false;
-
-        while (!isValidInput) {
-            System.out.print("Enter input: ");
-            String input = scanner.next();
-
-            try {
-                intValue = Integer.parseInt(input);
-                isValidInput = true; // Set flag to true to exit loop
-            } catch (NumberFormatException e) {
-                System.out.println("Input should be an integer, not a string. Please try again.");
-            }
-        }
-
-        System.out.println("Input is an integer: " + intValue);
+//********************************************************************
+// ReboundPanel.java Java Foundations
+//
+// Represents the primary panel for the Rebound program.
+//********************************************************************
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Test extends JPanel{
+    private final int WIDTH = 300, HEIGHT = 100;
+    private final int DELAY = 20, IMAGE_SIZE = 35;
+    private ImageIcon image;
+    private Timer timer;
+    private int x, y, moveX, moveY;
+    //-----------------------------------------------------------------
+    // Sets up the panel, including the timer for the animation.
+    //-----------------------------------------------------------------
+    public Test(){
+        timer = new Timer(DELAY, new ReboundListener());
+        image = new ImageIcon("src/happyFace.gif");
+        x = 0;
+        y = 40;
+        moveX = moveY = 3;
+        setPreferredSize (new Dimension(WIDTH, HEIGHT));
+        setBackground (Color.black);
+        timer.start();
     }
-    public static void checkInput(String input) {
-        // Check if the input can be parsed as an integer
-        try {
-            int intValue = Integer.parseInt(input);
-            System.out.println("Input is an integer.");
-        } catch (NumberFormatException e) {
-            // If parsing as integer fails, it's a string
-            System.out.println("Input should be an integer, not a string.");
+    //-----------------------------------------------------------------
+    // Draws the image in the current location.
+    //-----------------------------------------------------------------
+    public void paintComponent (Graphics page){
+        super.paintComponent (page);
+        image.paintIcon (this, page, x, y);
+    }
+    //*****************************************************************
+    // Represents the action listener for the timer.
+    //*****************************************************************
+    private class ReboundListener implements ActionListener{
+        //-----------------------------------------------------------------
+        // Updates the position of the image and possibly the direction
+        // of movement whenever the timer fires an action event.
+        //-----------------------------------------------------------------
+        public void actionPerformed (ActionEvent event){
+            x += moveX;
+            y += moveY;
+            if (x <= 0 || x >= WIDTH-IMAGE_SIZE)
+                moveX = moveX * -1;
+            if (y <= 0 || y >= HEIGHT-IMAGE_SIZE)
+                moveY = moveY * -1;
+            repaint();
         }
     }
-
 }

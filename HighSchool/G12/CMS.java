@@ -1,8 +1,21 @@
 
 import java.util.Scanner;
 
+
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 public class CMS
 {
+	//main
 	public static void main(String[] args)
 	{
 		System.out.println("====================================================");
@@ -21,6 +34,7 @@ public class CMS
 			System.out.print("\n[1] Companies\n[2] Cameras\n[3] Exit Program\nEnter your choice: ");
 			choice = inputChoice.nextInt();
 
+			//Companies
 			if(choice == 1)
 			{
 				int choiceCompany;
@@ -49,7 +63,7 @@ public class CMS
 						}
 						else
 						{
-							System.out.println("<<Current Companies>>");
+							System.out.println("===<<Current Companies>>===");
 							displayCompanies(companies);
 
 							Scanner inputCompaniesCreate = new Scanner(System.in);
@@ -59,7 +73,6 @@ public class CMS
 							if(companiesCreate == 'y')
 								addCompanies(companies);
 						}
-
 					}
 					else if(choiceCompany == 2)
 					{
@@ -77,7 +90,6 @@ public class CMS
 							if(companiesCreate == 'y')
 								companies =	createCompanies(companies);
 						}
-
 						else
 						{
 							System.out.println("<<Current Companies>>");
@@ -96,7 +108,7 @@ public class CMS
 					}
 					else if(choiceCompany == 3)
 					{
-						System.out.println("\nDisplay Companies");
+						System.out.println("\n===<<Display Companies>>===\n");
 						displayCompanies(companies);
 					}
 					else if(choiceCompany == 4)
@@ -105,6 +117,7 @@ public class CMS
 						System.out.println("\n<<INVALID input!>>");
 				}while(choiceCompany != 4);
 			}
+			//Camera(Product)
 			else if(choice == 2)
 			{
 				int choiceProduct;
@@ -148,7 +161,6 @@ public class CMS
 				{
 					System.out.println("\nAdd Companies to the cameras\n");
 					System.out.println("Add Companies into the cameras in the order of the CAMERA ID");
-
 					if(products == null)
 					{
 						System.out.println("Create cameras first!");
@@ -160,7 +172,6 @@ public class CMS
 						if(companiesCreate == 'y')
 							products =	createProducts(products);
 					}
-
 					else
 					{
 						System.out.println("<<Current Cameras>>");
@@ -179,23 +190,26 @@ public class CMS
 				}
 				else if(choiceProduct == 3)
 				{
-					System.out.println("\nDisplay Companies");
+					System.out.println("\n<<Display Companies>>\n");
 					displayProducts(products);
 				}
 				else if(choiceProduct == 4)
 					choiceProduct = 4;
-				else
+				else{
 					System.out.println("\n<<INVALID input!>>");
+				}
 				}while(choiceProduct != 4);
 			}
+			//Exit Program
 			else if (choice == 3)
 				choice = 3;
 			else
 				System.out.println("<<INVALID input!>>");
 		}while(choice != 3);
-
-		System.out.println("Good Bye!\n Exiting Program....");
+		new Smile();
+		System.out.println("\nGood Bye!\nExiting Program....");
 	}
+	//display Companies
 	public static void displayCompanies(CCompany[] companies)
 	{
 		for(int i = 0; i < companies.length; i++)
@@ -204,18 +218,19 @@ public class CMS
 				System.out.println("no Companies yet");
 			else if(companies[i].product == null)
 			{
-				System.out.println("ID: " + (i + 1) + "\nName of the COMPANY: " + companies[i].getName() + " \nYear of establishment of COMPANY:" + companies[i].getYear());
-				System.out.println("no cameras yet");
+				System.out.println("===== " + "Company " + (i + 1) + " =====");
+				System.out.println("Name of the COMPANY: " + companies[i].getName() + " \n" + "Year of establishment of COMPANY: " + companies[i].getYear());
+				System.out.println("no cameras yet" + "\n");
 			}
 			else
 			{
-				System.out.println("ID: "+ (i + 1) + " Name of the COMPANY: " + companies[i].getName());
-				System.out.println("ID: "+ (i + 1) + " Year of establishment of COMPANY: " + companies[i].getYear());
+				System.out.println("ID: "+ (i + 1) + " \nName: of the COMPANY " + companies[i].getName());
+				System.out.println("Year of establishment of COMPANY: " + companies[i].getYear());
 				if(companies[i].product != null)
 				{
 					for(int j = 0; j < companies[i].product.length; j++)
 					{
-						System.out.println("==========================");
+						System.out.println("======== Camera " + (j + 1) + " ========");
 						System.out.println("Name: " + companies[i].product[j].getName());
                         System.out.println("Lens: " + companies[i].product[j].getLens());
                         System.out.println("Colour: " + companies[i].product[j].getColour());
@@ -227,6 +242,7 @@ public class CMS
 			}
 		}
 	}
+	//display Products
 	public static void displayProducts(CProduct[] products)
 	{
 		for(int i = 0; i < products.length; i++)
@@ -235,20 +251,23 @@ public class CMS
 				System.out.println("no cameras yet");
 			else if(products[i].company == null)
 			{
-				System.out.println((i + 1) + " " + products[i].getName() + " "  + products[i].getLens() + " " + products[i].getColour() + " " + products[i].getType() + " " + products[i].getPrice());
-				System.out.println("no Companies yet");
+				System.out.println("===== " + "Camera " + (i + 1) + " =====");
+				System.out.println("\nName: " + products[i].getName() + "\nLens: "  + products[i].getLens() + "\nColor: " + products[i].getColour() + "\nType: " + products[i].getType() + "\nPrice: " + products[i].getPrice());
+				System.out.println("\nno Companies yet");
 			}
 			else
 			{
-				System.out.println((i + 1) + " " + "NAME: " + products[i].getName());
-				System.out.println((i + 1) + " " + "LENS: " + products[i].getLens());
-				System.out.println((i + 1) + " " + "COLOUR: " + products[i].getColour());
-				System.out.println((i + 1) + " " + "TYPE:" + products[i].getType());
-				System.out.println((i + 1) + " " + "PRICE: " + products[i].getPrice());
+				System.out.println("===== " + "Camera " + (i + 1) + " =====");
+				System.out.println("NAME: " + products[i].getName());
+				System.out.println("LENS: " + products[i].getLens());
+				System.out.println("COLOUR: " + products[i].getColour());
+				System.out.println("TYPE:" + products[i].getType());
+				System.out.println("PRICE: " + products[i].getPrice());
 				if(products[i].company != null)
 				{
 					for(int j = 0; j < products[i].company.length; j++)
 					{
+						System.out.println("	<<Company Info>>	");
 						System.out.println("Name of the COMPANY: " + products[i].company[j].getName());
 						System.out.println("Year of establishment of COMPANY: " + products[i].company[j].getYear());
 					}
@@ -256,7 +275,7 @@ public class CMS
 			}
 		}
 	}
-
+	//create Companies
 	public static CCompany[] createCompanies(CCompany[] companies)
 	{
 		Scanner inputNumberCompanies = new Scanner(System.in);
@@ -264,7 +283,7 @@ public class CMS
 		int numberCompanies = inputNumberCompanies.nextInt();
 
 		companies = new CCompany[numberCompanies];
-		for(int i = 0;i<companies.length;i++)
+		for(int i = 0;i < companies.length; i++)
 		{
 			companies[i] = new CCompany();
 			System.out.println("\nADD NEW Companies\n");
@@ -278,6 +297,7 @@ public class CMS
 		}
 		return companies;
 	}
+	//create Products
 	public static CProduct[] createProducts(CProduct[] products)
 	{
 		Scanner inputNumberProducts = new Scanner(System.in);
@@ -306,7 +326,37 @@ public class CMS
 		}
 		return products;
 	}
+	//add Companies
+	public static CCompany[] addCompanies(CCompany[] companies) {
+        // checking
+        if (companies == null) {
+            companies = new CCompany[1];
+            companies[0] = new CCompany();
 
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter name of Company : ");
+            companies[0].setName(input.next());
+            System.out.print("\nEnter year of Company : ");
+            companies[0].setYear(input.nextInt());
+        	} else {
+            CCompany[] temp = new CCompany[companies.length + 1];
+            for (int i = 0; i < temp.length; i++)
+                temp[i] = new CCompany();
+            for (int i = 0; i < companies.length; i++) {
+                temp[i].setName(companies[i].getName());
+                temp[i].setYear(companies[i].getYear());
+            }
+            companies = temp;
+
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter name of Company : ");
+            companies[companies.length - 1].setName(input.next());
+            System.out.print("\nEnter year of Company : ");
+            companies[companies.length - 1].setYear(input.nextInt());
+        }
+        return companies;
+    }
+	/* 
 	public static CCompany[] addCompanies(CCompany[] companies)
 	{
 		Scanner inputCompanyName = new Scanner(System.in);
@@ -314,16 +364,28 @@ public class CMS
 		String companyName = inputCompanyName.nextLine();
 		for(int i = 0; i < companies.length; i++)
 		{
-			if(companies[i].getName() == "no name")
-			{	companies[i].setName(companyName);
+			if(companies[i].getName() == null)
+			{	
+				companies[i] = new CCompany();
+				System.out.println("\nADD NEW Companies\n");
+				Scanner inputInfo = new Scanner(System.in);
+				System.out.print("Enter the name of COMPANY " + (i + 1) + ": ");
+				String nameX = inputInfo.nextLine();
+				System.out.print("Enter the year of establishment of COMPANY " + (i + 1) + ": ");
+				int yearX = inputInfo.nextInt();
+				companies[i].setName(nameX);
+				companies[i].setYear(yearX);
 				break;
 			}
 			else
 				System.out.print("Can not add anymore.");
+			
 		}
-
+	
 		return companies;
 	}
+	*/
+	//add Products
 	public static CProduct[] addProducts(CProduct[] products)
 	{
 		Scanner inputProductName = new Scanner(System.in);
@@ -355,7 +417,7 @@ public class CMS
 
 		return products;
 	}
-
+	//add CompanyProducts
 	public static CCompany[] addCompanyProducts(CCompany[] companies)
 	{
 		System.out.println("\n<<Current Companies>>");
@@ -394,6 +456,7 @@ public class CMS
 		}
 		return companies;
 	}
+	//add Product Companies
 	public static CProduct[] addProductCompanies(CProduct[] products)
 	{
 		System.out.println("\nCurrent Cameras");
@@ -425,6 +488,61 @@ public class CMS
 		}
 		return products;
 	}
+	public void Smile() 
+	{
+        EventQueue.invokeLater(new Runnable() 
+		{
+            @Override
+            public void run()
+			{
+                try 
+				{
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    ex.printStackTrace();
+                }
 
-	
+                JFrame frame = new JFrame("Smile");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.add(new TestPane());
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+        });
+    }
+    public class TestPane extends JPanel 
+	{
+        public TestPane() {
+        }
+        @Override
+        public Dimension getPreferredSize()
+		{
+            return new Dimension(400, 400);
+        }
+
+        protected void paintComponent(Graphics g) 
+		{
+            super.paintComponent(g);
+            drawSmiley(g, 25, 25, 100);
+        }
+
+        public void drawSmiley(Graphics g, int x, int y, int s) 
+		{
+            Graphics copy = g.create();
+            copy.translate(x, y);
+            copy.setColor((Color.YELLOW));
+            copy.fillOval(0, 0, s, s);
+            copy.setColor((Color.blue));
+            copy.fillOval((int) (1 + s * .3), (int) (1 + s * .3), (int) (s * .10), (int) (s * .10));
+            copy.fillOval((int) ((1 + s * .7) - (s * .10)), (int) (1 + s * .3), (int) (s * .10), (int) (s * .10));
+
+            double width = s * 0.8;
+            double height = s * 0.8;
+
+            copy.drawArc((int)((s - width) / 2d), (int)((s - height) / 2d), (int)width, (int)height, 0, -180);
+            copy.dispose();
+        }
+    }
+
 }

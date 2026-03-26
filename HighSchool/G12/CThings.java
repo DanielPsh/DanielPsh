@@ -55,7 +55,7 @@ public class CThings
 			this.colour = colour;
 		}
 
-		public void setType(String Type)
+		public void setType(String type)
 		{
 			this.type = type; 
 		}

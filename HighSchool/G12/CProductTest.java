@@ -4,10 +4,10 @@ public class CProductTest
 	public static void main(String[] args)
 	{
 		//Individual objects
-		CProduct p1 = new CProduct("Nikon", "Black", 2, 1.99);
+		CProduct p1 = new CProduct("Nikon", "Black", null, 2, 1.99);
 		System.out.println(p1.getPrice() + " " + p1.getName() + " " + p1.getColour() + " " + p1.getLens());
 
-		CProduct p2 = new CProduct("Canon", "Brown", 1, 2.99);
+		CProduct p2 = new CProduct("Canon", "Brown", null, 1, 2.99);
 		System.out.println(p2.getPrice() + " " + p2.getName() + " " + p2.getColour() + " " + p2.getLens());
 
 		//array of objects

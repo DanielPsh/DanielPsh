@@ -1,17 +1,46 @@
+import java.lang.System.Logger.Level;
+
 public class FRQ {
-    public static void main(String[] args)
+    private Level levelOne;
+    private Level levelTwo;
+    private Level levelThree;
+    
+    public int getScore()
     {
-        int[] arr = {1,2,3,4};
-        swap(arr, 0, 3);
-        for(int i = 0; i < arr.length; i++)
+        int score = 0;
+        if(levelOne.goalReached())
         {
-            System.out.print(arr[i]);
+            score = levelOne.getPoints();
+            if(levelTwo.goalReached())
+            {
+                score += levelTwo.getPoints();
+                if(levelThree.getPoints())
+                {
+                    score += levelThree.getPoints();
+                }
+            }
         }
+        if(isBonus())
+        {
+            score *= 3;
+        }
+        return score;
     }
-    public static void swap(int[] arr, int i, int j)
+    
+    public int playManyTimes(int num)
     {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        int scoreMax = 0;
+        for(int i = 0; i < num; i ++)
+        {
+            play();
+            int score = getScore();
+            if(score > scoreMax)
+            {
+                score = scoreMax;
+            }
+        }
+        return scoreMax;
     }
+
+    
 }
