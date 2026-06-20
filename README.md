@@ -1,133 +1,96 @@
-# DanielPsh — Portfolio
+# Sang Hyun Park
 
-This repository is my portfolio and coursework archive, containing assignments, lab work, and small projects across multiple courses. It includes Java, Python networking, MIPS assembly, and Rust implementations, along with supporting scripts and tests—reflecting my progress and growing experience throughout my studies.
+Computing student at **The Hong Kong Polytechnic University (PolyU)**. I build software across systems, networking, and application layers — from concurrent Rust services and socket-based servers to SwiftUI macOS apps and full-stack web tools.
 
-## Table of contents
+**GitHub:** [@DanielPsh](https://github.com/DanielPsh)
 
-- [Repo structure](#repo-structure)
-- [Courses](#courses)
-  - [COMP2011](#comp2011)
-  - [COMP2021](#comp2021)
-  - [COMP2322](#comp2322)
-  - [COMP2421](#comp2421)
-  - [COMP2432](#comp2432)
-- [Quick “save to GitHub”](#quick-save-to-github)
-- [Notes](#notes)
+---
 
-## Repo structure
+## Skills
 
-- `Polyu/COMP2011/`: Java coursework
-- `Polyu/COMP2021/`: Java OOP coursework (assignments + tests)
-- `Polyu/COMP2322/`: Python networking labs (TCP/UDP, simple HTTP server)
-- `Polyu/COMP2421/`: MIPS assembly exercises
-- `Polyu/COMP2432/`: Rust labs + small scripts + project work
+| Area | Technologies |
+|------|--------------|
+| Languages | Java, Python, Rust, Swift, JavaScript, MIPS assembly |
+| Systems & concurrency | Thread-safe queues, process coordination, OS concepts |
+| Networking | TCP/UDP sockets, HTTP servers |
+| Application | SwiftUI, React, Node.js, Express |
+| Tooling | Git, Cargo, Xcode, IntelliJ |
 
-## Courses
+---
 
-### COMP2011
+## Featured projects
 
-**What you’ll find**
+### BrewBrightness
+macOS menu-bar style app built with **SwiftUI**. Screen brightness is visualized as a beer glass that drains over time; tap to "drink" and restore brightness. Includes animated liquid, foam, bubbles, and sound feedback.
 
-- `Polyu/COMP2011/Assignment1/`: Java assignment code
-- `Polyu/COMP2011/Assignment2/`: Java assignment code
+`BrewBrightness/`
 
-**How to run (generic Java CLI)**
+### Project Blaze — Medical Care Robot Coordination
+**COMP2432** group project. Multi-threaded robot coordination system in **Rust** with a thread-safe task queue, emergency-aware scheduling, zone mutual exclusion, and heartbeat health monitoring.
 
-From the repo root:
+`Polyu/COMP2432/Project/comp2432-project-blaze-gp54-main/`
 
 ```bash
-cd "Polyu/COMP2011/Assignment1"
-javac *.java
-java SimpleArray_236
+cd Polyu/COMP2432/Project/comp2432-project-blaze-gp54-main
+cargo run -- --robots=5 --duration=20
 ```
 
-If a folder has multiple packages, compile from the package root with `javac` and run the correct main class.
+### Flip-Flop Logic Simulator
+**COMP2421** full-stack project — **React** frontend with a **Node.js/Express** API that simulates SR, D, JK, and T flip-flops for digital logic learning.
 
-### COMP2021
+`Polyu/COMP2421/project/`
 
-**What you’ll find**
+### Soul *(in planning)*
+Concept for a global liquor guide and e-commerce platform for beginners — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile.
 
-- `Polyu/COMP2021/Assignment1/`
-  - `src/`: Java source
-  - `test/`: unit tests (JUnit)
-- `Polyu/COMP2021/Assignment2/`
-  - `src/`: Java source
-  - `test/`: unit tests (JUnit)
+`Soul/`
 
-**How to run (IntelliJ recommended)**
+---
 
-- Open `Polyu/COMP2021/Assignment1` or `Polyu/COMP2021/Assignment2` as a project.
-- Run tests from the `test/` folder.
+## Academic work
 
-**How to run (CLI, if you prefer)**
+Coursework and lab archive from PolyU computing modules.
 
-If you have JDK installed, you can compile and run from the `src/` root package directory. (JUnit tests require adding JUnit jars to the classpath.)
+| Course | Focus | Path |
+|--------|-------|------|
+| COMP2011 | Java programming | `Polyu/COMP2011/` |
+| COMP2021 | Java OOP & unit testing (JUnit) | `Polyu/COMP2021/` |
+| COMP2322 | Python networking — TCP/UDP, HTTP servers | `Polyu/COMP2322/` |
+| COMP2421 | MIPS assembly & digital logic | `Polyu/COMP2421/` |
+| COMP2432 | Operating systems — Rust labs & projects | `Polyu/COMP2432/` |
 
-### COMP2322
+<details>
+<summary><strong>Run examples</strong></summary>
 
-**Highlights**
-
-- `Polyu/COMP2322/Lab05/MyHTTPServer1.py`: simple socket-based HTTP server
-- `Polyu/COMP2322/Lab05/MyHTTPServer2.py`: another HTTP server variant
-- `Polyu/COMP2322/Lab05/MyHTTPServer3.py`: another HTTP server variant
-- `Polyu/COMP2322/Lab05/MyHTTPServer4.py`: another HTTP server variant
-- `Polyu/COMP2322/socket_lab/`: TCP client/server exercises
-- `Polyu/COMP2322/Lab04/Q3/`, `Polyu/COMP2322/Lab04/Q4/`: TCP lab questions
-- `Polyu/COMP2322/tcp.py`, `Polyu/COMP2322/udp.py`: TCP/UDP exercises
-
-**How to run**
-
-Python HTTP server:
-
+**Java (COMP2011)**
 ```bash
-python3 "Polyu/COMP2322/Lab05/MyHTTPServer1.py"
+cd Polyu/COMP2011/Assignment1
+javac *.java && java SimpleArray_236
 ```
 
-Test it:
-
+**Python HTTP server (COMP2322)**
 ```bash
-curl "http://127.0.0.1:8000/"
+python3 Polyu/COMP2322/Lab05/MyHTTPServer1.py
+curl http://127.0.0.1:8000/
 ```
 
-### COMP2421
+**MIPS assembly (COMP2421)** — open `.s` files in MARS or QtSpim.
 
-**What you’ll find**
-
-- `Polyu/COMP2421/*.s`: MIPS assembly exercises and examples
-- `Polyu/COMP2421/MIPS/`: additional MIPS files
-
-**How to run**
-
-Use a MIPS simulator such as **MARS** or **QtSpim**:
-
-- Open a `.s` file (example: `Polyu/COMP2421/Example.s`)
-- Assemble + run inside the simulator
-
-### COMP2432
-
-**Highlights**
-
-- `Polyu/COMP2432/Project/robot_blaze1/`: Rust project (Cargo)
-- `Polyu/COMP2432/lab02/`, `lab03/`: Rust labs (Cargo)
-- `Polyu/COMP2432/lab02_OptionalExercise/`: Rust optional exercises (Cargo)
-- `Polyu/COMP2432/lec03/`, `lec04/`: lecture work + small `.sh` scripts
-- `Polyu/COMP2432/Assign/`: data/scripts for assignments
-
-**How to run (Rust / Cargo)**
-
+**Rust (COMP2432)**
 ```bash
-cd "Polyu/COMP2432/Project/robot_blaze1"
+cd Polyu/COMP2432/Project/robot_blaze1
 cargo run
 ```
 
-## Quick “save to GitHub”
+</details>
 
-If you want “cloud backup” after you add/edit files:
+---
 
-```bash
-bash scripts/push.sh "your commit message"
-```
+## Other
 
-## Notes
+- `python_fullcourse/` — Python fundamentals practice
+- `HighSchool/` — earlier Java coursework and projects
 
-- macOS `.DS_Store`, Rust `target/`, and editor swap files are ignored to keep the repo clean for GitHub.
+---
+
+*This repository serves as my portfolio and coursework archive. Feel free to explore individual project folders for source code and documentation.*
