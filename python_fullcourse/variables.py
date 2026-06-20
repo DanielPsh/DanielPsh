@@ -1,0 +1,8 @@
+students_count = 1000  # variable name is students_count (int)
+raiting = 4.99  # variable name is raiting (float)
+is_published = True  # variable name is is_published (bool)
+course_name = "Python Programming"  # variable name is course_name (str)
+print(students_count)
+print(raiting)
+print(is_published)
+print(course_name)

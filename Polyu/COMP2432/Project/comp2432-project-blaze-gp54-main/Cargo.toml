@@ -1,0 +1,21 @@
+#[package]
+#name = "comp2432-project-blaze-gp54"
+#version = "0.1.0"
+#edition = "2024"
+
+#[dependencies]
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/task-queue",
+    "crates/zone-control",
+    "crates/health-monitor",
+    "crates/app",
+    "crates/taskgen",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021" 

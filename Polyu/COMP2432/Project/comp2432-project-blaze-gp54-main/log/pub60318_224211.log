@@ -1,0 +1,255 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running `target\debug\comp2432-project-blaze-gp54.exe`
+Start simulation: robots=5, duration=20s, heartbeat=700ms, task_gen=300ms, timeout=2500ms, lookahead=3
+Random generator seed     : 1773844931554325200
+[Health] online=[], offline=[]
+[TaskGen] pushed task #1 zone=Operating Room-1 emergency=false pos=(1.04,0.53)
+[Robot 1] acquired zone Operating Room-1, execute task #1 (emergency=false,) for 626ms
+[TaskGen] pushed task #2 zone=Pharmacy emergency=false pos=(5.13,5.08)
+[Robot 3] acquired zone Pharmacy, execute task #2 (emergency=false,) for 529ms
+[TaskGen] pushed task #3 zone=Ward-1 emergency=false pos=(1.65,2.54)
+[Robot 2] acquired zone Ward-1, execute task #3 (emergency=false,) for 641ms
+[Robot 1] released zone Operating Room-1, completed task #1
+[Robot 3] released zone Pharmacy, completed task #2
+[TaskGen] pushed task #4 zone=Ward-1 emergency=false pos=(0.16,8.34)
+[TaskGen] pushed task #5 zone=Intensive Care Unit-A emergency=false pos=(6.92,2.29)
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #5 (emergency=false,) for 763ms
+[Robot 2] released zone Ward-1, completed task #3
+[Robot 2] acquired zone Ward-1, execute task #4 (emergency=false,) for 721ms
+[TaskGen] pushed task #6 zone=Intensive Care Unit-A emergency=true pos=(6.62,2.21)
+[TaskGen] pushed task #7 zone=Operating Room-1 emergency=true pos=(8.28,9.31)
+[Robot 1] acquired zone Operating Room-1, execute task #7 (emergency=true,) for 557ms
+[Robot 3] released zone Intensive Care Unit-A, completed task #5
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #6 (emergency=true,) for 695ms
+[Robot 2] released zone Ward-1, completed task #4
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[TaskGen] pushed task #8 zone=Ward-1 emergency=false pos=(2.24,3.66)
+[Robot 2] acquired zone Ward-1, execute task #8 (emergency=false,) for 687ms
+[Robot 1] released zone Operating Room-1, completed task #7
+[TaskGen] pushed task #9 zone=Operating Room-1 emergency=false pos=(3.41,6.86)
+[Robot 1] acquired zone Operating Room-1, execute task #9 (emergency=false,) for 818ms
+[Robot 3] released zone Intensive Care Unit-A, completed task #6
+[TaskGen] pushed task #10 zone=Intensive Care Unit-A emergency=false pos=(1.95,8.74)
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #10 (emergency=false,) for 603ms
+[Robot 2] released zone Ward-1, completed task #8
+[TaskGen] pushed task #11 zone=Intensive Care Unit-A emergency=false pos=(3.18,9.25)
+[Robot 1] released zone Operating Room-1, completed task #9
+[TaskGen] pushed task #12 zone=Ward-1 emergency=false pos=(9.72,0.24)
+[Robot 4] acquired zone Ward-1, execute task #12 (emergency=false,) for 980ms
+[Robot 3] released zone Intensive Care Unit-A, completed task #10
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #11 (emergency=false,) for 991ms
+[TaskGen] pushed task #13 zone=Pharmacy emergency=true pos=(3.97,3.69)
+[Robot 5] acquired zone Pharmacy, execute task #13 (emergency=true,) for 627ms
+[TaskGen] pushed task #14 zone=Intensive Care Unit-A emergency=true pos=(9.56,9.28)
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[TaskGen] pushed task #15 zone=Ward-1 emergency=false pos=(3.69,0.14)
+[Robot 5] released zone Pharmacy, completed task #13
+[Robot 4] released zone Ward-1, completed task #12
+[Robot 4] acquired zone Ward-1, execute task #15 (emergency=false,) for 684ms
+[Robot 3] released zone Intensive Care Unit-A, completed task #11
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #14 (emergency=true,) for 712ms
+[TaskGen] pushed task #16 zone=Pharmacy emergency=false pos=(1.77,2.14)
+[Robot 2] acquired zone Pharmacy, execute task #16 (emergency=false,) for 780ms
+[TaskGen] pushed task #17 zone=Intensive Care Unit-A emergency=true pos=(6.92,0.04)
+[Robot 4] released zone Ward-1, completed task #15
+[Robot 3] released zone Intensive Care Unit-A, completed task #14
+[Robot 3] acquired zone Intensive Care Unit-A, execute task #17 (emergency=true,) for 950ms
+[TaskGen] pushed task #18 zone=Operating Room-1 emergency=false pos=(9.97,6.68)
+[Robot 4] acquired zone Operating Room-1, execute task #18 (emergency=false,) for 657ms
+[Robot 2] released zone Pharmacy, completed task #16
+[TaskGen] pushed task #19 zone=Operating Room-1 emergency=false pos=(5.79,2.22)
+[TaskGen] pushed task #20 zone=Operating Room-1 emergency=true pos=(4.36,6.38)
+[Robot 4] released zone Operating Room-1, completed task #18
+[Robot 4] acquired zone Operating Room-1, execute task #20 (emergency=true,) for 784ms
+[Robot 3] released zone Intensive Care Unit-A, completed task #17
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[TaskGen] pushed task #21 zone=Ward-1 emergency=false pos=(8.10,2.60)
+[Robot 2] acquired zone Ward-1, execute task #21 (emergency=false,) for 669ms
+[TaskGen] pushed task #22 zone=Pharmacy emergency=false pos=(3.00,5.11)
+[Robot 5] acquired zone Pharmacy, execute task #22 (emergency=false,) for 561ms
+[Robot 4] released zone Operating Room-1, completed task #20
+[Robot 4] acquired zone Operating Room-1, execute task #19 (emergency=false,) for 896ms
+[TaskGen] pushed task #23 zone=Pharmacy emergency=false pos=(7.47,6.71)
+[Robot 2] released zone Ward-1, completed task #21
+[Robot 5] released zone Pharmacy, completed task #22
+[Robot 5] acquired zone Pharmacy, execute task #23 (emergency=false,) for 954ms
+[TaskGen] pushed task #24 zone=Intensive Care Unit-A emergency=false pos=(6.37,7.29)
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #24 (emergency=false,) for 736ms
+[TaskGen] pushed task #25 zone=Ward-1 emergency=false pos=(0.86,4.63)
+[Robot 3] acquired zone Ward-1, execute task #25 (emergency=false,) for 680ms
+[Robot 4] released zone Operating Room-1, completed task #19
+[TaskGen] pushed task #26 zone=Intensive Care Unit-A emergency=true pos=(4.95,5.85)
+[Robot 2] released zone Intensive Care Unit-A, completed task #24
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #26 (emergency=true,) for 622ms
+[TaskGen] pushed task #27 zone=Ward-1 emergency=false pos=(3.93,7.96)
+[Robot 5] released zone Pharmacy, completed task #23
+[Robot 3] released zone Ward-1, completed task #25
+[Robot 3] acquired zone Ward-1, execute task #27 (emergency=false,) for 784ms
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[TaskGen] pushed task #28 zone=Intensive Care Unit-A emergency=true pos=(2.58,0.15)
+[Robot 2] released zone Intensive Care Unit-A, completed task #26
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #28 (emergency=true,) for 1187ms
+[TaskGen] pushed task #29 zone=Intensive Care Unit-A emergency=false pos=(9.66,7.17)
+[Robot 3] released zone Ward-1, completed task #27
+[TaskGen] pushed task #30 zone=Intensive Care Unit-A emergency=false pos=(5.96,7.31)
+[TaskGen] pushed task #31 zone=Operating Room-1 emergency=false pos=(9.39,9.82)
+[Robot 3] acquired zone Operating Room-1, execute task #31 (emergency=false,) for 908ms
+[TaskGen] pushed task #32 zone=Pharmacy emergency=false pos=(3.54,4.52)
+[Robot 1] acquired zone Pharmacy, execute task #32 (emergency=false,) for 543ms
+[Robot 2] released zone Intensive Care Unit-A, completed task #28
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #30 (emergency=false,) for 637ms
+[TaskGen] pushed task #33 zone=Ward-1 emergency=true pos=(7.19,1.42)
+[Robot 4] acquired zone Ward-1, execute task #33 (emergency=true,) for 499ms
+[Robot 1] released zone Pharmacy, completed task #32
+[TaskGen] pushed task #34 zone=Pharmacy emergency=true pos=(4.44,4.30)
+[Robot 1] acquired zone Pharmacy, execute task #34 (emergency=true,) for 833ms
+[Robot 3] released zone Operating Room-1, completed task #31
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[Robot 2] released zone Intensive Care Unit-A, completed task #30
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #29 (emergency=false,) for 727ms
+[Robot 4] released zone Ward-1, completed task #33
+[TaskGen] pushed task #35 zone=Intensive Care Unit-A emergency=false pos=(6.66,2.95)
+[TaskGen] pushed task #36 zone=Ward-1 emergency=false pos=(4.00,5.72)
+[Robot 4] acquired zone Ward-1, execute task #36 (emergency=false,) for 677ms
+[Robot 1] released zone Pharmacy, completed task #34
+[Robot 1] simulated failure: stop sending heartbeat
+[Robot 1] stopped
+[TaskGen] pushed task #37 zone=Ward-1 emergency=true pos=(3.66,0.43)
+[Robot 2] released zone Intensive Care Unit-A, completed task #29
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #35 (emergency=false,) for 627ms
+[TaskGen] pushed task #38 zone=Pharmacy emergency=false pos=(8.74,6.54)
+[Robot 5] acquired zone Pharmacy, execute task #38 (emergency=false,) for 734ms
+[Robot 4] released zone Ward-1, completed task #36
+[Robot 4] acquired zone Ward-1, execute task #37 (emergency=true,) for 320ms
+[TaskGen] pushed task #39 zone=Pharmacy emergency=false pos=(5.74,5.69)
+[Robot 2] released zone Intensive Care Unit-A, completed task #35
+[Robot 4] released zone Ward-1, completed task #37
+[TaskGen] pushed task #40 zone=Pharmacy emergency=false pos=(5.38,4.19)
+[Robot 5] released zone Pharmacy, completed task #38
+[Robot 5] acquired zone Pharmacy, execute task #40 (emergency=false,) for 768ms
+[Health] online=[1, 4, 5, 3, 2], offline=[]
+[TaskGen] pushed task #41 zone=Ward-1 emergency=false pos=(5.33,9.28)
+[Robot 4] acquired zone Ward-1, execute task #41 (emergency=false,) for 954ms
+[TaskGen] pushed task #42 zone=Intensive Care Unit-A emergency=false pos=(1.42,6.07)
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #42 (emergency=false,) for 525ms
+[TaskGen] pushed task #43 zone=Intensive Care Unit-A emergency=false pos=(5.23,5.52)
+[Robot 5] released zone Pharmacy, completed task #40
+[Robot 5] acquired zone Pharmacy, execute task #39 (emergency=false,) for 684ms
+[Robot 2] released zone Intensive Care Unit-A, completed task #42
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #43 (emergency=false,) for 912ms
+[TaskGen] pushed task #44 zone=Pharmacy emergency=true pos=(2.86,2.61)
+[Robot 4] released zone Ward-1, completed task #41
+[TaskGen] pushed task #45 zone=Operating Room-1 emergency=false pos=(7.43,7.59)
+[Robot 4] acquired zone Operating Room-1, execute task #45 (emergency=false,) for 256ms
+[Robot 5] released zone Pharmacy, completed task #39
+[Robot 5] acquired zone Pharmacy, execute task #44 (emergency=true,) for 808ms
+[Robot 4] released zone Operating Room-1, completed task #45
+[TaskGen] pushed task #46 zone=Intensive Care Unit-A emergency=true pos=(4.32,8.01)
+[Robot 2] released zone Intensive Care Unit-A, completed task #43
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #46 (emergency=true,) for 897ms
+[TaskGen] pushed task #47 zone=Operating Room-1 emergency=true pos=(1.42,9.16)
+[Robot 3] acquired zone Operating Room-1, execute task #47 (emergency=true,) for 593ms
+[Health] online=[4, 5, 3, 2], offline=[1]
+[TaskGen] pushed task #48 zone=Intensive Care Unit-A emergency=false pos=(3.72,0.94)
+[Robot 5] released zone Pharmacy, completed task #44
+[Robot 3] released zone Operating Room-1, completed task #47
+[TaskGen] pushed task #49 zone=Ward-1 emergency=false pos=(4.34,8.76)
+[Robot 4] acquired zone Ward-1, execute task #49 (emergency=false,) for 857ms
+[Robot 2] released zone Intensive Care Unit-A, completed task #46
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #48 (emergency=false,) for 855ms
+[TaskGen] pushed task #50 zone=Intensive Care Unit-A emergency=false pos=(5.82,0.23)
+[TaskGen] pushed task #51 zone=Intensive Care Unit-A emergency=false pos=(8.14,5.35)
+[Robot 4] released zone Ward-1, completed task #49
+[TaskGen] pushed task #52 zone=Intensive Care Unit-A emergency=false pos=(5.12,3.18)
+[Robot 2] released zone Intensive Care Unit-A, completed task #48
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #52 (emergency=false,) for 662ms
+[TaskGen] pushed task #53 zone=Ward-1 emergency=false pos=(4.76,8.51)
+[Robot 5] acquired zone Ward-1, execute task #53 (emergency=false,) for 1064ms
+[TaskGen] pushed task #54 zone=Operating Room-1 emergency=true pos=(8.02,7.20)
+[Robot 4] acquired zone Operating Room-1, execute task #54 (emergency=true,) for 584ms
+[Health] online=[4, 5, 3, 2], offline=[1]
+[Robot 2] released zone Intensive Care Unit-A, completed task #52
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #51 (emergency=false,) for 1006ms
+[TaskGen] pushed task #55 zone=Pharmacy emergency=false pos=(5.32,2.47)
+[Robot 3] acquired zone Pharmacy, execute task #55 (emergency=false,) for 628ms
+[Robot 4] released zone Operating Room-1, completed task #54
+[TaskGen] pushed task #56 zone=Pharmacy emergency=false pos=(5.39,6.02)
+[Robot 5] released zone Ward-1, completed task #53
+[TaskGen] pushed task #57 zone=Pharmacy emergency=false pos=(3.87,9.20)
+[Robot 3] released zone Pharmacy, completed task #55
+[Robot 3] acquired zone Pharmacy, execute task #57 (emergency=false,) for 944ms
+[TaskGen] pushed task #58 zone=Ward-1 emergency=false pos=(4.76,9.21)
+[Robot 5] acquired zone Ward-1, execute task #58 (emergency=false,) for 738ms
+[Robot 2] released zone Intensive Care Unit-A, completed task #51
+[Robot 2] acquired zone Intensive Care Unit-A, execute task #50 (emergency=false,) for 685ms
+[TaskGen] pushed task #59 zone=Intensive Care Unit-A emergency=false pos=(4.09,4.78)
+[TaskGen] pushed task #60 zone=Operating Room-1 emergency=true pos=(0.60,0.20)
+[Robot 4] acquired zone Operating Room-1, execute task #60 (emergency=true,) for 661ms
+[Robot 3] released zone Pharmacy, completed task #57
+[Robot 3] acquired zone Pharmacy, execute task #56 (emergency=false,) for 633ms
+[Robot 5] released zone Ward-1, completed task #58
+[Robot 5] acquired zone Intensive Care Unit-A, execute task #59 (emergency=false,) for 205ms
+[Robot 2] released zone Intensive Care Unit-A, completed task #50
+[Health] online=[4, 5, 3, 2], offline=[1]
+[TaskGen] pushed task #61 zone=Pharmacy emergency=false pos=(0.57,2.46)
+[Robot 5] released zone Intensive Care Unit-A, completed task #59
+[TaskGen] pushed task #62 zone=Intensive Care Unit-A emergency=true pos=(2.02,3.80)
+[Robot 5] acquired zone Intensive Care Unit-A, execute task #62 (emergency=true,) for 706ms
+[Robot 4] released zone Operating Room-1, completed task #60
+[Robot 3] released zone Pharmacy, completed task #56
+[Robot 3] acquired zone Pharmacy, execute task #61 (emergency=false,) for 941ms
+[TaskGen] pushed task #63 zone=Ward-1 emergency=true pos=(2.20,1.37)
+[Robot 4] acquired zone Ward-1, execute task #63 (emergency=true,) for 755ms
+[TaskGen] pushed task #64 zone=Intensive Care Unit-A emergency=false pos=(3.56,7.53)
+[Robot 5] released zone Intensive Care Unit-A, completed task #62
+[Robot 5] acquired zone Intensive Care Unit-A, execute task #64 (emergency=false,) for 399ms
+[TaskGen] pushed task #65 zone=Pharmacy emergency=false pos=(5.49,8.27)
+[Robot 4] released zone Ward-1, completed task #63
+[Robot 3] released zone Pharmacy, completed task #61
+[Robot 3] acquired zone Pharmacy, execute task #65 (emergency=false,) for 456ms
+[Robot 5] released zone Intensive Care Unit-A, completed task #64
+[TaskGen] pushed task #66 zone=Ward-1 emergency=false pos=(0.43,0.76)
+[Robot 4] acquired zone Ward-1, execute task #66 (emergency=false,) for 508ms
+[TaskGen] pushed task #67 zone=Ward-1 emergency=false pos=(7.16,9.24)
+[Robot 3] released zone Pharmacy, completed task #65
+[Robot 2] stopped
+[Robot 4] released zone Ward-1, completed task #66
+[Robot 4] stopped
+[Robot 5] stopped
+[TaskGen] stopped
+[Robot 3] stopped
+
+========== Simulation Summary ==========
+Configured robots         : 5
+Actual runtime (seconds)  : 20.18
+Generated tasks           : 67
+Completed tasks           : 66
+Completed emergency tasks : 18
+Remaining queue tasks     : 1
+Estimated in-flight tasks : 0
+Completion rate           : 98.51%
+Throughput                : 3.27 tasks/sec
+Zone lock latency (avg)   : 0.007 ms
+Zone lock latency (max)   : 0.017 ms
+Zone wait incl defer (avg): 0.008 ms
+Zone wait incl defer (max): 0.018 ms
+Deferred tasks wait (avg) : 0.000 ms
+Zone contention count     : 0
+Scheduler deferrals       : 151
+Scheduler wait (avg)      : 502.532 ms
+Scheduler wait (max)      : 5833.442 ms
+Zone lock deferrals       : 0
+Peak queue length         : 3
+Workload fingerprint      : 0x5B7F586680864C8F
+Total heartbeats sent     : 88
+Timeout detections        : 1
+Online robots             : [4, 5, 3, 2]
+Offline robots            : [1]
+Per-robot completion:
+  Robot  1: 5 tasks
+  Robot  2: 18 tasks
+  Robot  3: 16 tasks
+  Robot  4: 15 tasks
+  Robot  5: 12 tasks
+========================================
+Simulation ended. Remaining tasks in queue: 1
