@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sanghyunpark/Desktop/COMP1011/Lab08/Task3'
+relocations:     []
+...
