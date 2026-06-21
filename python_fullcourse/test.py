@@ -12,3 +12,8 @@ print(fruit[:-3])  # App
 print(10 % 3)  # modulus, returns the remainder of
 
 print(bool("False"))
+
+if "bag" > "cat":
+    print("bag is greater than cat")
+else:
+    print("cat is greater than bag")
