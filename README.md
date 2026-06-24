@@ -90,9 +90,10 @@ cargo run
 
 ## Other
 
+- `python_projects/` - Python beginner projects
 - `python_fullcourse/` — Python fundamentals practice
 - `HighSchool/` — earlier Java coursework and projects
-
+  
 ---
 
 *This repository serves as my portfolio and coursework archive. Feel free to explore individual project folders for source code and documentation.*
