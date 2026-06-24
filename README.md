@@ -92,6 +92,7 @@ cargo run
 
 - `python_projects/` - Python beginner projects
 - `python_fullcourse/` — Python fundamentals practice
+- `C++_HowToProgram/` - C++ fundamentals 
 - `HighSchool/` — earlier Java coursework and projects
   
 ---
