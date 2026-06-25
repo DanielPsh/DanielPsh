@@ -60,14 +60,14 @@ APPETIZER = [
 # Cold Appetizer
 COLD_APPETIZER = [
     ("Sliced Pork Belly with Mashed Garlic", 30)
-    ("Pig’s Ear in Mala Sauce", 30)
+    ("Pigs Ear in Mala Sauce", 30)
     ("Homemade Pickles", 12)
     ("Pink Fungus with Cucumber and Lemon", 25)
     ("Century Egg in Sichuan Style", 30)
     ("Black Fungus in Special Chill Sauce", 25)
     ("Cucumber in Special Chill Sauce", 25)
     ("Shredded Pork Tripe", 30)
-    ("Pig’s Oviduct in Mala Sauce", 30)
+    ("Pigs Oviduct in Mala Sauce", 30)
 ]
 
 
