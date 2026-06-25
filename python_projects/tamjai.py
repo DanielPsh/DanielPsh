@@ -33,8 +33,8 @@ DRINKS = [
     ("Iced Water / Ice", 10),
 ]
 
-SIDES = [
-
+Appetizer = [
+    ("TuFei Chicken Wings", 25)
 ]
 
 
