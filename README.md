@@ -93,6 +93,7 @@ cargo run
 - `python_projects/` - Python beginner projects
 - `python_turtle_graphics/` - Python turtle graphics practices & side games
 - `python_fullcourse/` — Python fundamentals practice
+- `java_practice/` — Java fundamentals practice
 - `C++_HowToProgram/` - C++ fundamentals 
 - `HighSchool/` — earlier Java coursework and projects
   
