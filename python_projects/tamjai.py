@@ -45,29 +45,29 @@ DRINKS = [
 # Appetizers
 APPETIZER = [
     ("TuFei Chicken Wings", 25),
-    ("Mala Chicken Wings", 25)
-    ("Chicken Wings with Herb", 25)
-    ("TuFei Chicken Wings & Drumsticks", 25)
-    ("Roasted Pork Intestines", 28)
-    ("Hong Kong Style Curry Fish & Fish Tofu", 12)
-    ("Fresh Vegetables (Lettuce)", 16)
-    ("Fresh Vegetables (Chinese Chives)", 16)
-    ("Fresh Vegetables (Bean Sprout)", 16)
-    ("Fresh Vegetables (Napa Cabbage)", 16)
-    ("Minced Pork", 12)
+    ("Mala Chicken Wings", 25),
+    ("Chicken Wings with Herb", 25),
+    ("TuFei Chicken Wings & Drumsticks", 25),
+    ("Roasted Pork Intestines", 28),
+    ("Hong Kong Style Curry Fish & Fish Tofu", 12),
+    ("Fresh Vegetables (Lettuce)", 16),
+    ("Fresh Vegetables (Chinese Chives)", 16),
+    ("Fresh Vegetables (Bean Sprout)", 16),
+    ("Fresh Vegetables (Napa Cabbage)", 16),
+    ("Minced Pork", 12),
 ]
 
 # Cold Appetizer
 COLD_APPETIZER = [
-    ("Sliced Pork Belly with Mashed Garlic", 30)
-    ("Pigs Ear in Mala Sauce", 30)
-    ("Homemade Pickles", 12)
-    ("Pink Fungus with Cucumber and Lemon", 25)
-    ("Century Egg in Sichuan Style", 30)
-    ("Black Fungus in Special Chill Sauce", 25)
-    ("Cucumber in Special Chill Sauce", 25)
-    ("Shredded Pork Tripe", 30)
-    ("Pigs Oviduct in Mala Sauce", 30)
+    ("Sliced Pork Belly with Mashed Garlic", 30),
+    ("Pigs Ear in Mala Sauce", 30),
+    ("Homemade Pickles", 12),
+    ("Pink Fungus with Cucumber and Lemon", 25),
+    ("Century Egg in Sichuan Style", 30),
+    ("Black Fungus in Special Chill Sauce", 25),
+    ("Cucumber in Special Chill Sauce", 25),
+    ("Shredded Pork Tripe", 30),
+    ("Pigs Oviduct in Mala Sauce", 30),
 ]
 
 
