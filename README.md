@@ -43,7 +43,7 @@ cargo run -- --robots=5 --duration=20
 ### Soul *(in planning)* 
 Self-Development (Solopreneur)
 
-Concept for a global liquor guide and e-commerce platform for beginners — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile.
+Concept for a global liquor guide and e-commerce platform for beginners — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile. Through this app development I would like to show the world with convinient tool that can be used by all the users around the world whenever they find it what?where?how? from soul (alchohol)
 
 `Soul/`
 
