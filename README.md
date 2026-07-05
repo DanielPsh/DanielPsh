@@ -90,8 +90,12 @@ cargo run
 
 ## Other
 
+- `ADsP/` — ADsP Test preparation
+- `C++_HowToProgram/` — C++ fundamentals practice
 - `python_projects/` - Python beginner projects
 - `python_fullcourse/` — Python fundamentals practice
+- `python_turutle_graphics/` — Python turtle graphics fundamentals practice & games
+- `java_practice/` — java fundamentals practice
 - `HighSchool/` — earlier Java coursework and projects
   
 ---
