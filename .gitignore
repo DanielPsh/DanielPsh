@@ -45,3 +45,6 @@ target/
 
 # Never commit nested repos
 **/.git/
+
+# Plaintext
+*.mp4
