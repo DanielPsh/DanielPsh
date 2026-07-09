@@ -96,6 +96,7 @@ cargo run
 - `python_fullcourse/` — Python fundamentals practice
 - `python_turutle_graphics/` — Python turtle graphics fundamentals practice & games
 - `java_practice/` — java fundamentals practice
+- `APCSA_Coursework/` — APCSA course works & practice
 - `HighSchool/` — earlier Java coursework and projects
   
 ---
