@@ -40,7 +40,7 @@ cargo run -- --robots=5 --duration=20
 
 `Polyu/COMP2421/project/`
 
-### Soul *(in planning)* 
+### Soul *(in planning & development)*
 Self-Development (Solopreneur)
 
 Concept for a global liquor guide and e-commerce platform for (alchohol) beginners to — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile.
