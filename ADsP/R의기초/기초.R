@@ -133,3 +133,34 @@ quantile(x)
 df1 <- data.frame(x = c(1,1,1,2,2), y = c(2,3,4,3,3))
 df2 <- data.frame(x = c(1,2,3,4), z = c(5,6,7,8))
 subset(df1, x==1)
+merge(df1,df2,by=c('x'))
+# 1은 각 행에 함수를 적용, 2는 각 열에 함수를 적용
+apply(df1,2,sum)
+
+#정규분포 (mean = 0, sd = 1이다)
+dnorm
+rnorm
+pnorm
+qnorm
+
+#표본추출
+rnuif
+sample
+
+# 날짜
+Sys.Date()
+Sys.time()
+as.Date("2020-01-01")
+format(Sys.Date(), '%y/%m/%d')
+format(Sys.Date(), '%A')
+unclass(Sys.time())
+as.POSIXct(1784355397, origin = '1970-01-01')
+
+# 산점도 
+x <- c(1:10)
+y <- rnorm(10)
+plot(x,y,type = 'l', xlim = c(-2,12), ylim = c(-3,3), xlab = 'X axis', ylab = 'Y axis', main = 'Test plot')
+abline(v = c(1,10), col = 'blue')
+
+data <- c(3,4,2,2)
+median(data)
