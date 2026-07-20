@@ -164,3 +164,7 @@ abline(v = c(1,10), col = 'blue')
 
 data <- c(3,4,2,2)
 median(data)
+
+# IRIS
+head(iris, 3)
+summary(iris)
