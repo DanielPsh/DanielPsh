@@ -168,3 +168,40 @@ median(data)
 # IRIS
 head(iris, 3)
 summary(iris)
+str(iris)
+
+#Amelia 패키지에 내장되어 있는 missmapp 함수로 결측값 시각화
+copy_iris <- iris
+copy_iris[sample(1:150,30),1] <- NA
+library(Amelia)
+install.packages("Amelia")
+missmap(copy_iris)
+dim(copy_iris)
+copy_iris[sample(1:150,30),1] <- NA
+copy_iris <- copy_iris[complete.cases(copy_iris),]
+dim(copy_iris)
+
+#평균 대치법
+copy_iris <- iris
+copy_iris[sample(1:150,30),1] <- NA
+meanValue <- mean(copy_iris$Sepal.Length, na.rm = T)
+copy_iris$Sepal.Length[is.na(copy_iris$Sepal.Length)] <- meanValue
+library(mice)
+install.packages("mice")
+copy_iris[sample(1:150,30),1]<-NA
+copy_iris <- complete(mice(copy_iris, m=1, method = "mean", seed = 123))
+
+#평균 대치법
+copy_iris <- iris
+copy_iris[sample(1:150,30),1] <- NA
+install.packages("VIM")
+library(VIM)
+compy_iris <- kNN(copy_iris, k = 10)[, c(1:5)]
+
+# 다중 대치법 
+copy_iris <- iris
+copy_iris[sample(1:150,30),1] <- NA
+library(Amelia)
+iris_imp <- amelia(copy_iris, m=3, cs="Species") #cs는 cross-sectional로 분석에 포함될정보를 의미 
+# 위 amelia에서 m 값을 그대로 imputation의 데이터셋에 사용한다
+copy_iris$Sepal.Length <- iris_imp$imputations[[3]]$Sepal.Length
