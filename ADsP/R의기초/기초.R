@@ -205,3 +205,7 @@ library(Amelia)
 iris_imp <- amelia(copy_iris, m=3, cs="Species") #cs는 cross-sectional로 분석에 포함될정보를 의미 
 # 위 amelia에서 m 값을 그대로 imputation의 데이터셋에 사용한다
 copy_iris$Sepal.Length <- iris_imp$imputations[[3]]$Sepal.Length
+
+#사분위수 
+data <- c(3,10,13,16,11,20,17,25,43)
+boxplot(data, horizontal = T)
