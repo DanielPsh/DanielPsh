@@ -12,7 +12,7 @@ screen_width = 480  # 가로 크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 # 화면 타이틀 설정
-pygame.display.set_caption("Game")  # 게임 이름
+pygame.display.set_caption("CAT HATES SNACKS?")  # 게임 이름
 
 # FPS
 clock = pygame.time.Clock()
