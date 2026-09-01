@@ -66,17 +66,20 @@ function renderGrid() {
   }
 
   grid.innerHTML = items
-    .map((item) => {
+    .map((item, i) => {
       const isFav = favorites.includes(item.id);
       return `
         <div class="card" data-id="${item.id}">
+          <span class="index">${String(i + 1).padStart(2, "0")}</span>
+          <div class="name-col">
+            <span class="type-badge">${item.type}</span>
+            <h3>${item.name}</h3>
+          </div>
+          <p class="region-col">${item.region}</p>
+          <p class="price-col">${item.price}</p>
           <button class="fav-star ${isFav ? "active" : ""}" data-fav="${item.id}">
             ${isFav ? "★" : "☆"}
           </button>
-          <span class="type-badge">${item.type}</span>
-          <h3>${item.name}</h3>
-          <p>${item.region}</p>
-          <p>${item.price}</p>
         </div>
       `;
     })
@@ -122,8 +125,8 @@ function render() {
   const favToggle = document.getElementById("favToggle");
   favToggle.classList.toggle("active", state.favoritesOnly);
   favToggle.textContent = state.favoritesOnly
-    ? "★ 전체 보기"
-    : "☆ 즐겨찾기만 보기";
+    ? "전체 보기"
+    : "즐겨찾기만 보기";
 }
 
 document.getElementById("searchInput").addEventListener("input", (e) => {
