@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul (술) — 주류 입문자 가이드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Soul <span class="hangul">(술)</span></h1>
+    <p class="tagline">입문자를 위한 주류 가이드</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="이름으로 검색..."
+      />
+      <div class="filters" id="filters"></div>
+      <button id="favToggle" class="fav-toggle">☆ 즐겨찾기만 보기</button>
+    </section>
+
+    <section class="grid" id="grid"></section>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
