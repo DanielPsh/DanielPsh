@@ -311,3 +311,35 @@ main {
   font-family: "Fraunces", Georgia, serif;
   font-size: 1.05rem;
 }
+
+.modal-image {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto 1.25rem;
+  border-radius: 6px;
+}
+
+.modal-instructions {
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--accent);
+}

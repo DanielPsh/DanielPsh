@@ -1,10 +1,51 @@
 const FAVORITES_KEY = "soul-favorites";
+const COCKTAIL_API = "https://www.thecocktaildb.com/api/json/v1/1";
+
+let LIQUORS = [...CURATED_LIQUORS];
 
 const state = {
   search: "",
   type: "전체",
   favoritesOnly: false,
 };
+
+async function fetchCocktails() {
+  try {
+    const listRes = await fetch(`${COCKTAIL_API}/filter.php?c=Cocktail`);
+    const listData = await listRes.json();
+    const picks = (listData.drinks || []).slice(0, 8);
+
+    const details = await Promise.all(
+      picks.map((d) =>
+        fetch(`${COCKTAIL_API}/lookup.php?i=${d.idDrink}`).then((r) => r.json())
+      )
+    );
+
+    return details
+      .map((d) => d.drinks && d.drinks[0])
+      .filter(Boolean)
+      .map((d) => {
+        const ingredients = [];
+        for (let i = 1; i <= 5; i++) {
+          if (d[`strIngredient${i}`]) ingredients.push(d[`strIngredient${i}`]);
+        }
+        return {
+          id: `cocktail-${d.idDrink}`,
+          name: d.strDrink,
+          type: "칵테일",
+          region: d.strIBA ? d.strIBA.replace(/_/g, " ") : "클래식 레시피",
+          taste: ingredients.join(", "),
+          price: "레시피",
+          calories: "재료 참고",
+          image: d.strDrinkThumb,
+          instructions: d.strInstructions,
+        };
+      });
+  } catch (err) {
+    console.error("칵테일 데이터를 불러오지 못했습니다:", err);
+    return [];
+  }
+}
 
 function getFavorites() {
   try {
@@ -102,14 +143,16 @@ function openModal(id) {
   if (!item) return;
 
   document.getElementById("modalBody").innerHTML = `
+    ${item.image ? `<img class="modal-image" src="${item.image}" alt="${item.name}" />` : ""}
     <span class="type-badge">${item.type}</span>
     <h2>${item.name}</h2>
     <dl>
       <dt>지역</dt><dd>${item.region}</dd>
-      <dt>맛</dt><dd>${item.taste}</dd>
+      <dt>맛/재료</dt><dd>${item.taste}</dd>
       <dt>가격</dt><dd>${item.price}</dd>
       <dt>칼로리</dt><dd>${item.calories}</dd>
     </dl>
+    ${item.instructions ? `<p class="modal-instructions">${item.instructions}</p>` : ""}
   `;
   document.getElementById("modalOverlay").classList.add("open");
 }
@@ -144,4 +187,11 @@ document.getElementById("modalOverlay").addEventListener("click", (e) => {
   if (e.target.id === "modalOverlay") closeModal();
 });
 
-render();
+async function init() {
+  render();
+  const cocktails = await fetchCocktails();
+  LIQUORS = [...CURATED_LIQUORS, ...cocktails];
+  render();
+}
+
+init();

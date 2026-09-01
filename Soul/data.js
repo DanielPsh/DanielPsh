@@ -1,4 +1,5 @@
-const LIQUORS = [
+// 칵테일은 TheCocktailDB API(script.js의 fetchCocktails)에서 실시간으로 불러온다.
+const CURATED_LIQUORS = [
   {
     id: "beer-hite",
     name: "Hite",
@@ -61,15 +62,6 @@ const LIQUORS = [
     taste: "새콤달콤, 부드러움",
     price: "₩1,800",
     calories: "46 kcal / 100ml",
-  },
-  {
-    id: "cocktail-mojito",
-    name: "Mojito",
-    type: "칵테일",
-    region: "쿠바",
-    taste: "상큼한 라임과 민트",
-    price: "₩9,000",
-    calories: "60 kcal / 100ml",
   },
   {
     id: "yakju-baekseju",
