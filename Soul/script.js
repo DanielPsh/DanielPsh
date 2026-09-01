@@ -1,5 +1,7 @@
 const FAVORITES_KEY = "soul-favorites";
 const COCKTAIL_API = "https://www.thecocktaildb.com/api/json/v1/1";
+const BEER_API = "https://punkapi-alxiw.amvera.io/v3/beers";
+const WINE_API = "https://api.sampleapis.com/wines/reds";
 
 let LIQUORS = [...CURATED_LIQUORS];
 
@@ -43,6 +45,46 @@ async function fetchCocktails() {
       });
   } catch (err) {
     console.error("칵테일 데이터를 불러오지 못했습니다:", err);
+    return [];
+  }
+}
+
+async function fetchBeers() {
+  try {
+    const res = await fetch(`${BEER_API}?page=1&per_page=10`);
+    const beers = await res.json();
+    return beers.slice(0, 8).map((b) => ({
+      id: `beer-punk-${b.id}`,
+      name: b.name,
+      type: "맥주",
+      region: "BrewDog · 스코틀랜드",
+      taste: b.description,
+      price: "가격 정보 없음",
+      calories: `ABV ${b.abv}%`,
+    }));
+  } catch (err) {
+    console.error("맥주 데이터를 불러오지 못했습니다:", err);
+    return [];
+  }
+}
+
+async function fetchWines() {
+  try {
+    const res = await fetch(WINE_API);
+    const wines = await res.json();
+    return wines.slice(0, 8).map((w) => ({
+      id: `wine-sample-${w.id}`,
+      name: w.wine,
+      type: "와인",
+      region: (w.location || "").replace(/\n·\n/g, ", "),
+      taste: `${w.winery} · 평점 ${w.rating?.average ?? "-"} (${
+        w.rating?.reviews ?? "-"
+      })`,
+      price: "가격 정보 없음",
+      calories: "정보 없음",
+    }));
+  } catch (err) {
+    console.error("와인 데이터를 불러오지 못했습니다:", err);
     return [];
   }
 }
@@ -189,8 +231,12 @@ document.getElementById("modalOverlay").addEventListener("click", (e) => {
 
 async function init() {
   render();
-  const cocktails = await fetchCocktails();
-  LIQUORS = [...CURATED_LIQUORS, ...cocktails];
+  const [cocktails, beers, wines] = await Promise.all([
+    fetchCocktails(),
+    fetchBeers(),
+    fetchWines(),
+  ]);
+  LIQUORS = [...CURATED_LIQUORS, ...beers, ...wines, ...cocktails];
   render();
 }
 

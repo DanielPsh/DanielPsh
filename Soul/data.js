@@ -1,41 +1,7 @@
-// 칵테일은 TheCocktailDB API(script.js의 fetchCocktails)에서 실시간으로 불러온다.
+// 맥주는 PunkAPI(fetchBeers), 와인은 SampleAPIs(fetchWines), 칵테일은 TheCocktailDB
+// (fetchCocktails)에서 실시간으로 불러온다. 위스키/사케/막걸리/약주/과일주는 마땅한
+// 오픈 데이터가 없어 직접 작성했다. 모두 script.js에서 병합한다.
 const CURATED_LIQUORS = [
-  {
-    id: "beer-hite",
-    name: "Hite",
-    type: "맥주",
-    region: "대한민국",
-    taste: "가볍고 청량함",
-    price: "₩2,000",
-    calories: "45 kcal / 100ml",
-  },
-  {
-    id: "beer-guinness",
-    name: "Guinness Draught",
-    type: "맥주",
-    region: "아일랜드",
-    taste: "묵직하고 로스팅 향",
-    price: "₩6,500",
-    calories: "54 kcal / 100ml",
-  },
-  {
-    id: "wine-malbec",
-    name: "Malbec",
-    type: "와인",
-    region: "아르헨티나",
-    taste: "진한 과일향, 타닌감",
-    price: "₩18,000",
-    calories: "85 kcal / 100ml",
-  },
-  {
-    id: "wine-chardonnay",
-    name: "Chardonnay",
-    type: "와인",
-    region: "프랑스",
-    taste: "산뜻하고 오크향",
-    price: "₩22,000",
-    calories: "82 kcal / 100ml",
-  },
   {
     id: "whiskey-glenfiddich",
     name: "Glenfiddich 12",
