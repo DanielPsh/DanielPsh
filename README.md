@@ -43,7 +43,7 @@ cargo run -- --robots=5 --duration=20
 ### Soul *(in planning & development)*
 Self-Development (Solopreneur)
 
-Concept for a global liquor guide and e-commerce platform for (alchohol) beginners to — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile.
+Concept for a global liquor guide and e-commerce platform for (alcohol) beginners to — search, detailed drink profiles, AI lens lookup, and cross-platform sync between web and mobile.
 
 `Soul/`
 
@@ -94,7 +94,7 @@ cargo run
 - `C++_HowToProgram/` — C++ fundamentals practice
 - `python_projects/` - Python beginner projects
 - `python_fullcourse/` — Python fundamentals practice
-- `python_turutle_graphics/` — Python turtle graphics fundamentals practice & games
+- `python_turtle_graphics/` — Python turtle graphics fundamentals practice & games
 - `java_practice/` — java fundamentals practice
 - `APCSA_Coursework/` — APCSA course works & practice
 - `HighSchool/` — earlier Java coursework and projects
