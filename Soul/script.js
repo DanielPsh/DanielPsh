@@ -5,6 +5,15 @@ const WINE_API = "https://api.sampleapis.com/wines/reds";
 
 let LIQUORS = [...CURATED_LIQUORS];
 
+// 맥주/와인/칵테일/바코드 조회 결과는 외부(크라우드소싱 포함) API에서 오므로,
+// innerHTML에 꽂기 전에 반드시 이스케이프해서 XSS를 막는다.
+function escapeHtml(value) {
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch])
+  );
+}
+
 const state = {
   search: "",
   type: "전체",
@@ -152,15 +161,15 @@ function renderGrid() {
     .map((item, i) => {
       const isFav = favorites.includes(item.id);
       return `
-        <div class="card" data-id="${item.id}">
+        <div class="card" data-id="${escapeHtml(item.id)}">
           <span class="index">${String(i + 1).padStart(2, "0")}</span>
           <div class="name-col">
-            <span class="type-badge">${item.type}</span>
-            <h3>${item.name}</h3>
+            <span class="type-badge">${escapeHtml(item.type)}</span>
+            <h3>${escapeHtml(item.name)}</h3>
           </div>
-          <p class="region-col">${item.region}</p>
-          <p class="price-col">${item.price}</p>
-          <button class="fav-star ${isFav ? "active" : ""}" data-fav="${item.id}">
+          <p class="region-col">${escapeHtml(item.region)}</p>
+          <p class="price-col">${escapeHtml(item.price)}</p>
+          <button class="fav-star ${isFav ? "active" : ""}" data-fav="${escapeHtml(item.id)}">
             ${isFav ? "★" : "☆"}
           </button>
         </div>
@@ -188,16 +197,16 @@ function openModal(id) {
 
 function openModalWithItem(item) {
   document.getElementById("modalBody").innerHTML = `
-    ${item.image ? `<img class="modal-image" src="${item.image}" alt="${item.name}" />` : ""}
-    <span class="type-badge">${item.type}</span>
-    <h2>${item.name}</h2>
+    ${item.image ? `<img class="modal-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" />` : ""}
+    <span class="type-badge">${escapeHtml(item.type)}</span>
+    <h2>${escapeHtml(item.name)}</h2>
     <dl>
-      <dt>지역</dt><dd>${item.region}</dd>
-      <dt>맛/재료</dt><dd>${item.taste}</dd>
-      <dt>가격</dt><dd>${item.price}</dd>
-      <dt>칼로리</dt><dd>${item.calories}</dd>
+      <dt>지역</dt><dd>${escapeHtml(item.region)}</dd>
+      <dt>맛/재료</dt><dd>${escapeHtml(item.taste)}</dd>
+      <dt>가격</dt><dd>${escapeHtml(item.price)}</dd>
+      <dt>칼로리</dt><dd>${escapeHtml(item.calories)}</dd>
     </dl>
-    ${item.instructions ? `<p class="modal-instructions">${item.instructions}</p>` : ""}
+    ${item.instructions ? `<p class="modal-instructions">${escapeHtml(item.instructions)}</p>` : ""}
   `;
   document.getElementById("modalOverlay").classList.add("open");
 }
