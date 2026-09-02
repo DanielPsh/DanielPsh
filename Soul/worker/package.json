@@ -1,0 +1,16 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "라벨 사진을 Claude Vision API로 인식해주는 Cloudflare Worker. API 키를 프론트엔드에 노출하지 않기 위한 최소한의 백엔드다. 자세한 배경은 `../README.md`의 \"AI 렌즈 기획 (v2)\" 참고.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "wrangler": "^4.128.0"
+  }
+}
