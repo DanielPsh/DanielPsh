@@ -101,17 +101,23 @@ MVP 검증 이후 우선순위를 다시 정해서 진행한다.
 모달로 보여준다. 카메라 권한 거부, 제품 미검출, 조회 실패는 모두
 "다시 스캔" 버튼과 함께 안내 메시지로 처리한다.
 
-**v2.1(라벨 사진 인식)은 코드 작성 완료, 배포 전.** `Soul/worker/`에
-Cloudflare Worker 코드(Claude Vision API 호출 + Durable Object 기반
-rate limiter)를 아래 계획대로 작성했고, `scan.js`에도 "라벨로 찾기
-(베타)" 버튼 → 카메라로 프레임 촬영 → Worker 호출 → `LIQUORS`에서
-퍼지 매칭 → 매칭 실패 시 이름 외 전부 "정보 없음"으로 채우는 흐름을
-전부 구현했다. fetch/캡처를 모킹해서 매칭 성공/실패, 인식 실패, Worker
-오류, XSS 방어까지 로직은 전부 확인했지만, 아직 다음 두 가지가 없어서
-실제로 동작하지는 않는다: (1) Cloudflare 계정과 Anthropic API 키가
-없어 Worker를 배포하지 못했고, (2) `scan.js`의 `LABEL_API` 상수가
-아직 플레이스홀더 URL이다. 배포 방법은 `Soul/worker/README.md` 참고 —
-배포 후 그 URL로 상수만 바꾸면 바로 동작한다.
+**v2.1(라벨 사진 인식)은 코드 작성·배포 완료, 진입 버튼은 대기 중.**
+`Soul/worker/`의 Cloudflare Worker(Claude Vision API 호출 + Durable
+Object 기반 rate limiter, SQLite 스토리지 백엔드로 무료 티어 대응)를
+실제로 `https://soul-ai-lens.danielpark1030.workers.dev`에 배포했고,
+`scan.js`의 `LABEL_API`도 이 실제 URL을 가리킨다. "카메라로 프레임
+촬영 → Worker 호출 → `LIQUORS`에서 퍼지 매칭 → 매칭 실패 시 이름 외
+전부 '정보 없음'으로 채우는" 흐름도 fetch/캡처 모킹으로 로직 전부
+확인했다.
+
+다만 실제로 눌러보면 아직 실패한다 — Anthropic 계정에 결제 수단이
+등록되지 않아 API 호출 자체가 거부된다("credit balance too low").
+매번 실패하는 버튼을 그대로 노출하는 건 나쁜 경험이라, `main.html`의
+"라벨로 찾기 (베타)" 버튼은 `hidden` 처리해서 화면에서 숨겨뒀다.
+[console.anthropic.com/settings/billing](https://console.anthropic.com/settings/billing)에서
+크레딧을 충전한 뒤 `main.html`에서 그 버튼의 `hidden` 속성만 지우면
+바로 켜진다. 그때까지는 v2.0(바코드 스캔)이 AI 렌즈의 기본 동작
+방식이다.
 
 ### 목표
 카메라로 술병을 비추면 어떤 술인지 찾아준다.
@@ -217,7 +223,10 @@ Object 호출이 Worker의 하루 10만 요청 한도와 별개로 집계되는�
   이 프로젝트는 무료 오픈 API 위주로 왔는데 비전 LLM은 대부분 유료라
   예산 계획이 먼저 필요
 - Cloudflare 계정도 새로 필요 (GitHub 계정과는 별개)
-- Durable Objects 요청이 Worker의 하루 10만 요청 한도와 별개로 집계되는지
-  구현 착수 시 Cloudflare 공식 문서로 재확인 필요
+- ~~Durable Objects가 무료 티어에서 되는지~~ → 실제 배포로 확인함:
+  무료 티어에서는 `new_classes`가 아니라 `new_sqlite_classes` 마이그레이션
+  으로 만들어야 한다(`wrangler.toml` 반영 완료). 다만 Durable Object
+  요청이 Worker의 하루 10만 요청 한도와 별개로 집계되는지는 실제로
+  한도에 부딪혀보지 않아 여전히 미확인 — 트래픽이 늘면 재확인 필요
 - 이후 SwiftUI 네이티브 앱으로 확장할 경우 Vision 프레임워크로 대체할지,
   웹 구현을 그대로 웹뷰로 재사용할지

@@ -1,10 +1,11 @@
 const OFF_PRODUCT_API = "https://world.openfoodfacts.org/api/v2/product";
 const ZXING_CDN = "https://unpkg.com/@zxing/library@0.21.3/umd/index.min.js";
 
-// 라벨 인식(v2.1)용 Cloudflare Worker 엔드포인트.
-// Soul/worker를 배포한 뒤 실제 Worker URL로 바꿔야 동작한다 — 배포 전까지는
-// 이 기능이 항상 실패 메시지를 보여준다 (Soul/worker/README.md 참고).
-const LABEL_API = "https://REPLACE-WITH-YOUR-WORKER-SUBDOMAIN.workers.dev";
+// 라벨 인식(v2.1)용 Cloudflare Worker 엔드포인트. 배포는 완료했지만
+// Anthropic 계정에 크레딧이 없어 아직 호출이 실패한다 — 그래서 진입 버튼도
+// main.html에서 hidden 처리해뒀다. 크레딧 충전 후 버튼의 hidden만 지우면
+// 바로 동작한다 (Soul/worker/README.md 참고).
+const LABEL_API = "https://soul-ai-lens.danielpark1030.workers.dev";
 
 let activeStream = null;
 let zxingReader = null;
