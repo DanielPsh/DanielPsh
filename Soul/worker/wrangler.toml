@@ -1,0 +1,16 @@
+name = "soul-ai-lens"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# 배포 후 Soul 프론트엔드가 실제로 호스팅되는 origin으로 바꿔주세요.
+# (개발 중에는 기본값 "*"로 모든 origin을 허용합니다.)
+[vars]
+ALLOWED_ORIGIN = "*"
+
+[[durable_objects.bindings]]
+name = "RATE_LIMITER"
+class_name = "RateLimiter"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["RateLimiter"]
