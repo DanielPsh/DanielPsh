@@ -343,3 +343,52 @@ footer {
 footer a {
   color: var(--accent);
 }
+
+/* ---------- Barcode scan ---------- */
+
+.scan-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 23, 20, 0.75);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 20;
+}
+
+.scan-overlay.open {
+  display: flex;
+}
+
+.scan-box {
+  position: relative;
+  background: var(--surface);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  border-top: 3px solid var(--ink);
+  text-align: center;
+}
+
+#scanVideo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.scan-status {
+  margin: 1.25rem 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.scan-status .fav-toggle {
+  margin-top: 0.75rem;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}

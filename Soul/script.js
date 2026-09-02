@@ -183,7 +183,10 @@ function renderGrid() {
 function openModal(id) {
   const item = LIQUORS.find((l) => l.id === id);
   if (!item) return;
+  openModalWithItem(item);
+}
 
+function openModalWithItem(item) {
   document.getElementById("modalBody").innerHTML = `
     ${item.image ? `<img class="modal-image" src="${item.image}" alt="${item.name}" />` : ""}
     <span class="type-badge">${item.type}</span>

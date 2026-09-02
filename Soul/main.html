@@ -27,6 +27,7 @@
         placeholder="이름으로 검색"
       />
       <nav class="filters" id="filters"></nav>
+      <button id="scanButton" class="fav-toggle">바코드로 찾기</button>
       <button id="favToggle" class="fav-toggle">즐겨찾기만 보기</button>
     </section>
 
@@ -48,6 +49,14 @@
     </div>
   </div>
 
+  <div class="scan-overlay" id="scanOverlay">
+    <div class="scan-box">
+      <button class="modal-close" id="scanClose">&times;</button>
+      <video id="scanVideo" playsinline muted></video>
+      <p id="scanStatus" class="scan-status"></p>
+    </div>
+  </div>
+
   <footer>
     데이터 제공:
     <a href="https://www.thecocktaildb.com/" target="_blank" rel="noopener">TheCocktailDB</a>
@@ -60,5 +69,6 @@
 
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="scan.js"></script>
 </body>
 </html>
