@@ -58,9 +58,9 @@ async function fetchBeers() {
       name: b.name,
       type: "맥주",
       region: "BrewDog · 스코틀랜드",
-      taste: b.description,
+      taste: `${b.description} (ABV ${b.abv}%)`,
       price: "가격 정보 없음",
-      calories: `ABV ${b.abv}%`,
+      calories: "정보 없음",
     }));
   } catch (err) {
     console.error("맥주 데이터를 불러오지 못했습니다:", err);

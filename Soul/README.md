@@ -56,6 +56,7 @@ MVP 검증 이후 우선순위를 다시 정해서 진행한다.
 | 맥주 | [PunkAPI](https://github.com/alxiw/punkapi) | BrewDog가 재사용 목적으로 공개한 DIY Dog 데이터의 커뮤니티 포크 |
 | 와인 | [SampleAPIs Wines](https://sampleapis.com/api-list/wines) | 개발자용 공개 샘플 데이터셋 (이미지는 Vivino CDN 직링크라 미사용) |
 | 위스키/사케/막걸리/약주/과일주 | 직접 작성 | 위 조건을 만족하는 오픈 데이터셋을 찾지 못함 |
+| 바코드 스캔 결과 | [Open Food Facts](https://world.openfoodfacts.org/) | ODbL 라이선스, 출처 표기 조건으로 재사용 (v2.0 바코드 스캔에서 사용) |
 
 **기술 스택**
 정적 HTML/CSS/JS (원래 계획한 "HTML → 뼈대, CSS → 꾸미기, JS → 기능"을
