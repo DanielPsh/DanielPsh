@@ -28,6 +28,7 @@
       />
       <nav class="filters" id="filters"></nav>
       <button id="scanButton" class="fav-toggle">바코드로 찾기</button>
+      <button id="labelScanButton" class="fav-toggle">라벨로 찾기 (베타)</button>
       <button id="favToggle" class="fav-toggle">즐겨찾기만 보기</button>
     </section>
 
@@ -53,7 +54,11 @@
     <div class="scan-box">
       <button class="modal-close" id="scanClose">&times;</button>
       <video id="scanVideo" playsinline muted></video>
+      <button id="scanCapture" class="fav-toggle" hidden>사진 찍기</button>
       <p id="scanStatus" class="scan-status"></p>
+      <p id="scanPrivacyNote" class="scan-privacy" hidden>
+        사진은 인식에만 사용되고 저장되지 않아요.
+      </p>
     </div>
   </div>
 

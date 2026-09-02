@@ -1,6 +1,11 @@
 const OFF_PRODUCT_API = "https://world.openfoodfacts.org/api/v2/product";
 const ZXING_CDN = "https://unpkg.com/@zxing/library@0.21.3/umd/index.min.js";
 
+// 라벨 인식(v2.1)용 Cloudflare Worker 엔드포인트.
+// Soul/worker를 배포한 뒤 실제 Worker URL로 바꿔야 동작한다 — 배포 전까지는
+// 이 기능이 항상 실패 메시지를 보여준다 (Soul/worker/README.md 참고).
+const LABEL_API = "https://REPLACE-WITH-YOUR-WORKER-SUBDOMAIN.workers.dev";
+
 let activeStream = null;
 let zxingReader = null;
 let detectLoopId = null;
@@ -36,15 +41,17 @@ function stopCamera() {
 function closeScanOverlay() {
   stopCamera();
   document.getElementById("scanOverlay").classList.remove("open");
+  document.getElementById("scanCapture").hidden = true;
+  document.getElementById("scanPrivacyNote").hidden = true;
 }
 
 function setScanStatus(html) {
   document.getElementById("scanStatus").innerHTML = html;
 }
 
-function showScanRetry(message) {
+function showScanRetry(message, retryFn = startScan) {
   setScanStatus(`${message}<br /><button id="scanRetry" class="fav-toggle">다시 스캔</button>`);
-  document.getElementById("scanRetry").addEventListener("click", startScan);
+  document.getElementById("scanRetry").addEventListener("click", retryFn);
 }
 
 async function startScan() {
@@ -135,6 +142,98 @@ async function handleBarcode(code) {
   }
 }
 
+async function startRawCamera(video) {
+  activeStream = await navigator.mediaDevices.getUserMedia({
+    video: { facingMode: "environment" },
+  });
+  video.srcObject = activeStream;
+  await video.play();
+}
+
+async function startLabelScan() {
+  document.getElementById("scanOverlay").classList.add("open");
+  setScanStatus("카메라 준비 중...");
+
+  const video = document.getElementById("scanVideo");
+
+  try {
+    await startRawCamera(video);
+    setScanStatus("라벨이 잘 보이게 카메라를 대고 촬영해주세요");
+    document.getElementById("scanCapture").hidden = false;
+    document.getElementById("scanPrivacyNote").hidden = false;
+  } catch (err) {
+    showScanRetry(`카메라를 사용할 수 없어요: ${err.message}`, startLabelScan);
+  }
+}
+
+function captureFrame(video) {
+  const canvas = document.createElement("canvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext("2d").drawImage(video, 0, 0);
+  const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
+  const match = dataUrl.match(/^data:(.+);base64,(.*)$/);
+  return { mediaType: match[1], base64: match[2] };
+}
+
+async function handleLabelCapture() {
+  const video = document.getElementById("scanVideo");
+  const { base64, mediaType } = captureFrame(video);
+
+  stopCamera();
+  document.getElementById("scanCapture").hidden = true;
+  document.getElementById("scanPrivacyNote").hidden = true;
+  setScanStatus("라벨 인식 중...");
+
+  try {
+    const res = await fetch(LABEL_API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ imageBase64: base64, mediaType }),
+    });
+
+    if (!res.ok) {
+      const errBody = await res.json().catch(() => ({}));
+      showScanRetry(errBody.error || "인식에 실패했어요.", startLabelScan);
+      return;
+    }
+
+    const { brand, name } = await res.json();
+    if (!name && !brand) {
+      showScanRetry("라벨을 인식하지 못했어요.", startLabelScan);
+      return;
+    }
+
+    const recognizedName = [brand, name].filter(Boolean).join(" ").trim();
+    const existing = LIQUORS.find(
+      (l) =>
+        l.name.toLowerCase().includes(recognizedName.toLowerCase()) ||
+        recognizedName.toLowerCase().includes(l.name.toLowerCase())
+    );
+
+    closeScanOverlay();
+
+    if (existing) {
+      openModalWithItem(existing);
+      return;
+    }
+
+    // v2.1 계획대로: DB에 없으면 인식된 이름 외 모든 필드는 "정보 없음"으로
+    // 채운다. 비전 LLM이 다른 값을 지어내도 그대로 신뢰하지 않는다.
+    openModalWithItem({
+      id: `label-${Date.now()}`,
+      name: recognizedName,
+      type: "라벨 인식 (DB에 없음)",
+      region: "정보 없음",
+      taste: "정보 없음",
+      price: "정보 없음",
+      calories: "정보 없음",
+    });
+  } catch (err) {
+    showScanRetry(`인식 요청 중 오류가 발생했어요: ${err.message}`, startLabelScan);
+  }
+}
+
 function mapOffProduct(code, product) {
   const kcal = product.nutriments && product.nutriments["energy-kcal_100g"];
   return {
@@ -149,6 +248,8 @@ function mapOffProduct(code, product) {
 }
 
 document.getElementById("scanButton").addEventListener("click", startScan);
+document.getElementById("labelScanButton").addEventListener("click", startLabelScan);
+document.getElementById("scanCapture").addEventListener("click", handleLabelCapture);
 document.getElementById("scanClose").addEventListener("click", closeScanOverlay);
 document.getElementById("scanOverlay").addEventListener("click", (e) => {
   if (e.target.id === "scanOverlay") closeScanOverlay();

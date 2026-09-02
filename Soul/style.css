@@ -392,3 +392,14 @@ footer a {
   font-family: "Inter", sans-serif;
   font-style: normal;
 }
+
+#scanCapture {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.scan-privacy {
+  margin: 1rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
