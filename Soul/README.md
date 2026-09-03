@@ -91,6 +91,13 @@ MVP 검증 이후 우선순위를 다시 정해서 진행한다.
 
 ## AI 렌즈 기획 (v2)
 
+> **TODO — 결제 필요.** v2.1(라벨 사진 인식)을 켜려면
+> [console.anthropic.com/settings/billing](https://console.anthropic.com/settings/billing)에서
+> Anthropic 계정에 결제 수단을 등록하고 크레딧을 충전해야 한다. 그
+> 전까지는 `main.html`의 "라벨로 찾기 (베타)" 버튼을 `hidden` 처리해서
+> 숨겨둔 상태 — 코드/배포는 이미 끝나 있으니 결제만 되면 `hidden` 속성만
+> 지우면 된다. 자세한 내용은 아래 참고.
+
 원본 노트의 "AI 렌즈 → 내가 찾고 싶은 주류의 정보"를 실제로 구현 가능한
 단계로 쪼갠 계획.
 
